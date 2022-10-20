@@ -62,7 +62,7 @@ Route::get('/thanks', function () {
 
 //******************    Trang quan ly    ******************//
 
-Route::prefix('admin')->group(function () {
+Route::prefix('ogani-admin')->group(function () {
     Route::get('/', function(){
         return view('admin.admin');
     });
