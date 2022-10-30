@@ -46,7 +46,7 @@
                                 class="fas fa-info-circle"></i></a></td>
 
                     <td>
-                        <form method="POST" action="/admin/blog/delete/{{ $blog->id }}"
+                        <form method="POST" action="/ogani-admin/blog/delete/{{ $blog->id }}"
                             onsubmit="return ConfirmDelete( this )">
                             @method('DELETE')
                             @csrf

@@ -32,7 +32,7 @@
 
                                     <td>
 
-                                        <form method="POST" action="/admin/order/delete/{{ $order->id }}"
+                                        <form method="POST" action="/ogani-admin/order/delete/{{ $order->id }}"
                                             onsubmit="return ConfirmDelete( this )">
                                             @method('DELETE')
                                             @csrf

@@ -103,10 +103,10 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item" style="padding-left: 10px;">
-                                    <a href="/admin/products" class="nav-link">
+                                    <a href="/ogani-admin/products" class="nav-link">
                                         <p>Sản phẩm</p>
                                     </a>
-                                    <a href="/admin/categories" class="nav-link">
+                                    <a href="/ogani-admin/categories" class="nav-link">
                                         <p>Danh mục sản phẩm</p>
                                     </a>
                                 </li>

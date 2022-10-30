@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Ogani</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -145,8 +145,7 @@
                             <li><a href="{{ route('shopping-cart') }}"><i class="fa fa-shopping-bag"></i>
                                     <span class="qty">{{ $qty }}</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span
-                                class="total">{{ number_format($total) }} đ</span></div>
+                        <div class="header__cart__price">item: <span class="total">{{ number_format($total) }} đ</span></div>
                     </div>
                 </div>
             </div>
@@ -167,20 +166,22 @@
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
                         </div>
-                        <ul>
-                            @foreach ($categories_parent as $category)
-                                <div class="dropdown">
-                                    <button class="dropbtn">{{ $category->name }}</button>
-                                    <div class="dropdown-content">
-                                        @if ($category != null)
-                                            @foreach ($category->subCategories as $subCat)
-                                                <a href="#">{{ $subCat->name }}</a>
-                                            @endforeach
-                                        @endif
+                        <div style="display: block; height: 500px; width: 100%; overflow-y: scroll;">
+                            <ul>
+                                @foreach ($categories_parent as $category)
+                                    <div class="dropdown">
+                                        <button class="dropbtn">{{ $category->name }}</button>
+                                        {{-- <div class="dropdown-content">
+                                            @if ($category != null)
+                                                @foreach ($category->subCategories as $subCat)
+                                                    <a href="#">{{ $subCat->name }}</a>
+                                                @endforeach
+                                            @endif
+                                        </div> --}}
                                     </div>
-                                </div>
-                            @endforeach
-                        </ul>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -225,32 +226,27 @@
             <div class="row">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg"
-                            data-setbg="{{ asset('front_end/img/categories/cat-1.jpg') }}">
+                        <div class="categories__item set-bg" data-setbg="{{ asset('front_end/img/categories/cat-1.jpg') }}">
                             <h5><a href="#">Fresh Fruit</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg"
-                            data-setbg="{{ asset('front_end/img/categories/cat-2.jpg') }}">
+                        <div class="categories__item set-bg" data-setbg="{{ asset('front_end/img/categories/cat-2.jpg') }}">
                             <h5><a href="#">Dried Fruit</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg"
-                            data-setbg="{{ asset('front_end/img/categories/cat-3.jpg') }}">
+                        <div class="categories__item set-bg" data-setbg="{{ asset('front_end/img/categories/cat-3.jpg') }}">
                             <h5><a href="#">Vegetables</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg"
-                            data-setbg="{{ asset('front_end/img/categories/cat-4.jpg') }}">
+                        <div class="categories__item set-bg" data-setbg="{{ asset('front_end/img/categories/cat-4.jpg') }}">
                             <h5><a href="#">drink fruits</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg"
-                            data-setbg="{{ asset('front_end/img/categories/cat-5.jpg') }}">
+                        <div class="categories__item set-bg" data-setbg="{{ asset('front_end/img/categories/cat-5.jpg') }}">
                             <h5><a href="#">drink fruits</a></h5>
                         </div>
                     </div>
@@ -276,11 +272,9 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="product__item">
                                 <meta name="_token" content="{{ csrf_token() }}">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="{{ '/upload/' . $product->image }}">
+                                <div class="product__item__pic set-bg" data-setbg="{{ '/upload/' . $product->image }}">
                                     <ul class="product__item__pic__hover">
-                                        <li><a data-url="{{ route('addToCart', ['id' => $product->id]) }}"
-                                                class="add_to_cart"><i class="fa fa-shopping-cart"></i></a>
+                                        <li><a data-url="{{ route('addToCart', ['id' => $product->id]) }}" class="add_to_cart"><i class="fa fa-shopping-cart"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -299,11 +293,9 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="product__item">
                                     <meta name="_token" content="{{ csrf_token() }}">
-                                    <div class="product__item__pic set-bg"
-                                        data-setbg="{{ '/upload/' . $product->image }}">
+                                    <div class="product__item__pic set-bg" data-setbg="{{ '/upload/' . $product->image }}">
                                         <ul class="product__item__pic__hover">
-                                            <li><a data-url="{{ route('addToCart', ['id' => $product->id]) }}"
-                                                    class="add_to_cart"><i class="fa fa-shopping-cart"></i></a>
+                                            <li><a data-url="{{ route('addToCart', ['id' => $product->id]) }}" class="add_to_cart"><i class="fa fa-shopping-cart"></i></a>
                                             </li>
                                         </ul>
                                     </div>

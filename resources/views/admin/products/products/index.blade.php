@@ -57,7 +57,7 @@
                             <td><a class="color" href="products/detail/{{ $product->slug }}"><i
                                         class="fas fa-info-circle"></i></a></td>
                             <td>
-                                <form method="POST" action="/admin/products/delete/{{ $product->id }}"
+                                <form method="POST" action="/ogani-admin/products/delete/{{ $product->id }}"
                                     onsubmit="return ConfirmDelete( this )">
                                     @method('DELETE')
                                     @csrf

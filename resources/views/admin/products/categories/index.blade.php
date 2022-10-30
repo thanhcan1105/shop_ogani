@@ -28,8 +28,7 @@
                 <h1>Danh mục sản phẩm({{ count($categories) }})</h1>
                 <hr>
                 <div style="width: 100%;">
-                    <button class="add"><a href="categories/add" style="color: #ffffff;"><i
-                                class="fas fa-plus"></i>Thêm sản phẩm</a></button>
+                    <button class="add"><a href="categories/add" style="color: #ffffff;"><i class="fas fa-plus"></i>Thêm danh mục</a></button>
                     {{-- <input class="addProduct" type="button" value="Thêm sản phẩm"> --}}
                 </div>
                 <table class="table table-striped">
@@ -48,13 +47,11 @@
                                 <tr>
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
-                                    <td>{{ $category->parentCategory != null ? $category->parentCategory->name : 'Không có'  }}</td>
-                                    <td><a class="color" href="categories/detail/{{ $category->slug }}"><i
-                                                class="fas fa-info-circle"></i></a></td>
+                                    <td>{{ $category->parentCategory != null ? $category->parentCategory->name : 'Không có' }}</td>
+                                    <td><a class="color" href="categories/detail/{{ $category->slug }}"><i class="fas fa-info-circle"></i></a></td>
 
                                     <td>
-                                        <form method="POST" action="/admin/categories/delete/{{ $category->id }}"
-                                            onsubmit="return ConfirmDelete( this )">
+                                        <form method="POST" action="/ogani-admin/categories/delete/{{ $category->id }}" onsubmit="return ConfirmDelete( this )">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn-dnger">Xóa</button>
@@ -107,6 +104,5 @@
         img {
             width: 100px;
         }
-
     </style>
 @endsection
