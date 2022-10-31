@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="{{ asset('front_end/css/drop-right-menu.css') }}">
 
+    
 </head>
 
 <body>
@@ -77,7 +78,6 @@
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
             </ul>
         </div>
     </div>
@@ -92,7 +92,6 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
                             </ul>
                         </div>
                     </div>
@@ -164,20 +163,20 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>Danh mục sản phẩm</span>
                         </div>
-                        <div style="display: block; height: 500px; width: 100%; overflow-y: scroll;">
+                        <div class="example">
                             <ul>
                                 @foreach ($categories_parent as $category)
                                     <div class="dropdown">
                                         <button class="dropbtn">{{ $category->name }}</button>
-                                        {{-- <div class="dropdown-content">
-                                            @if ($category != null)
-                                                @foreach ($category->subCategories as $subCat)
-                                                    <a href="#">{{ $subCat->name }}</a>
-                                                @endforeach
+                                        @foreach ($category->subCategories as $subCat)
+                                            @if ($subCat->count() > 0)
+                                                <div class="dropdown-content" style="width: 100%">
+                                                    <button class="dropchild"> -- {{ $subCat->name }}</button>
+                                                </div>
                                             @endif
-                                        </div> --}}
+                                        @endforeach
                                     </div>
                                 @endforeach
                             </ul>
@@ -221,7 +220,7 @@
     <!-- Hero Section End -->
 
     <!-- Categories Section Begin -->
-    <section class="categories">
+    {{-- <section class="categories">
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
@@ -253,7 +252,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
@@ -315,7 +314,7 @@
     <!-- Featured Section End -->
 
     <!-- Banner Begin -->
-    <div class="banner">
+    {{-- <div class="banner">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -330,7 +329,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Banner End -->
 
     <!-- Latest Product Section Begin -->
@@ -342,15 +341,17 @@
                         <h4>Latest Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{{ asset('front_end/img/latest-product/lp-1.jpg') }}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                @foreach ($latest as $item)
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="{{ '/upload/' . $item->image }}" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6>{{ $item->name }}</h6>
+                                            <span>{{ number_format($item->price) }}đ</span>
+                                        </div>
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -360,15 +361,17 @@
                         <h4>Top Rated Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{{ asset('front_end/img/latest-product/lp-1.jpg') }}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                @foreach ($latest as $item)
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="{{ '/upload/' . $item->image }}" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6>{{ $item->name }}</h6>
+                                            <span>{{ number_format($item->price) }}đ</span>
+                                        </div>
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -378,15 +381,17 @@
                         <h4>Review Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{{ asset('front_end/img/latest-product/lp-1.jpg') }}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                @foreach ($latest as $item)
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="{{ '/upload/' . $item->image }}" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6>{{ $item->name }}</h6>
+                                            <span>{{ number_format($item->price) }}đ</span>
+                                        </div>
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -407,51 +412,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{ asset('front_end/img/blog/blog-1.jpg') }}" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{ asset('front_end/img/blog/blog-2.jpg') }}" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                @foreach ($blogs as $item)
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="blog__item">
+                            <div class="blog__item__pic">
+                                <img src="{{ '/upload/' . $item->image }}" alt="">
+                            </div>
+                            <div class="blog__item__text">
+                                <ul>
+                                    <li><i class="fa fa-calendar-o"></i> {{ $item->created_at }}</li>
+                                    <li><i class="fa fa-comment-o"></i> 5</li>
+                                </ul>
+                                <h5><a href="#">{{ $item->title }}</a></h5>
+                                <p>{{ $item->description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{ asset('front_end/img/blog/blog-3.jpg') }}" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Visit the clean farm in the US</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

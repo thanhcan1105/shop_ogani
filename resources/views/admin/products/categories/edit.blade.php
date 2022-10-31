@@ -6,7 +6,7 @@
                 <h3 class="card-title">Thêm danh mục sản phẩm</h3>
             </div>
 
-            <form action="{{ url('admin/categories/edit' . '/' . $category->slug) }}" method="POST">
+            <form action="{{ url('ogani-admin/categories/edit' . '/' . $category->slug) }}" method="POST">
                 @method('POST')
                 @csrf
                 <div class="card-body">

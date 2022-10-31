@@ -181,7 +181,7 @@
                     </div>
                     <div>
                         <button class="edit"><a
-                                href="{{ url('admin/products/edit' . '/' . $product->slug) }}"
+                                href="{{ url('ogani-admin/products/edit' . '/' . $product->slug) }}"
                                 style="color: #ffffff;"></i>Sửa sản phẩm</a></button>
                     </div>
                 </div>

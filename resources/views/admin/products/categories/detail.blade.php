@@ -166,7 +166,7 @@
                         <div class="col-sm-8">{{ $category->updated_at }}</div>
                     </div>
                 </div>
-                <button><a href="{{ url('admin/categories/edit'.'/'. $category->slug) }}" style="color: #ffffff;"></i>Sua sản phẩm</a></button>
+                <button><a href="{{ url('ogani-admin/categories/edit'.'/'. $category->slug) }}" style="color: #ffffff;"></i>Sua sản phẩm</a></button>
             </section>
             <!-- /.content -->
         </div>

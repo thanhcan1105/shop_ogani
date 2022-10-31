@@ -55,8 +55,10 @@ class CategoriesController extends Controller
             'parent_id' => $request->parent_id ?? 0,
             'slug' => $request['slug'],
         ];
+        // \Toastr::success('Đăng ký tài khoản thành công', 'Thông báo', ["positionClass" => "toast-top-center"]);
         Categories::create($data);
-        return redirect(route('categories.categories'))->with('mgs', 'Thêm thành công!');
+        return redirect()->back()->with('success', 'Thêm thành công');
+        // return redirect(route('categories.categories'))->with('mgs', 'Thêm thành công!');
     }
 
 
@@ -78,12 +80,11 @@ class CategoriesController extends Controller
     public function postEditCategory(Request $request, $slug){
 
         $validated = $request->validate([
-            'name' => 'required|min:2|unique:categories,name',
+            'name' => 'required|min:2',
         ],
         [
             'name.required' => 'Tên còn trống!',
             'name.min' => 'Phải nhập ít nhất :min kí tự.',
-            'name.unique' => 'Tên không được trùng',
         ]);
 
         $request['slug'] = Str::slug($request->name);
@@ -94,7 +95,7 @@ class CategoriesController extends Controller
             'slug' => $request['slug'],
         ];
         Categories::where('slug', $slug)->update($data);
-        return redirect(route('products.categories'));
+        return redirect()->back();
     }
 
     //Chi tiết 1 danh mục sản phẩm (GET)

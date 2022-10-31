@@ -24,7 +24,6 @@ class ProductsController extends Controller
             ->join('categories','categories.id', '=', 'category_id')
             ->orderBy('id', 'ASC')
             ->paginate(10);
-
         return view('admin.products.products.index', compact('products'));
     }
 
@@ -91,7 +90,8 @@ class ProductsController extends Controller
         } else {
             $data['name'] = 'no_image.png';
         }
-        return redirect(route('products.products'))->with('msg', 'Thêm thành công!');
+        return redirect()->back();
+        // return redirect(route('products.products'))->with('msg', 'Thêm thành công!');
     }
 
 

@@ -77,7 +77,6 @@
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
             </ul>
         </div>
     </div>
@@ -92,7 +91,6 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
                             </ul>
                         </div>
                     </div>
@@ -164,22 +162,24 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>Danh mục sản phẩm</span>
                         </div>
-                        <ul>
-                            @foreach ($categories_parent as $category)
-                                <div class="dropdown">
-                                    <button class="dropbtn">{{ $category->name }}</button>
-                                    <div class="dropdown-content">
-                                        @if ($category != null)
-                                            @foreach ($category->subCategories as $subCat)
-                                                <a href="#">{{ $subCat->name }}</a>
-                                            @endforeach
-                                        @endif
+                        <div class="">
+                            <ul>
+                                @foreach ($categories_parent as $category)
+                                    <div class="dropdown">
+                                        <button class="dropbtn">{{ $category->name }}</button>
+                                        @foreach ($category->subCategories as $subCat)
+                                            @if ($subCat->count() > 0)
+                                                <div class="dropdown-content" style="width: 100%">
+                                                    <button class="dropchild"> -- {{ $subCat->name }}</button>
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
-                                </div>
-                            @endforeach
-                        </ul>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-9">

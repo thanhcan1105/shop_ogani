@@ -13,7 +13,7 @@
                         <label for="name">Tên danh mục</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Nhập tên danh mục">
                         @error('name')
-                            <span style="color: red">{{$message}}</span>
+                            <span style="color: red">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">

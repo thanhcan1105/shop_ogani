@@ -15,7 +15,7 @@
                 <h3 class="card-title">Sửa sản phẩm</h3>
             </div>
 
-            <form action="{{ url('admin/products/edit'.'/'. $product->slug) }}" enctype="multipart/form-data" method="POST">
+            <form action="{{ url('ogani-ogani-admin/products/edit/'. $product->slug) }}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
