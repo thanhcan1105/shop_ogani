@@ -10,6 +10,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ShopGridController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,11 @@ use Illuminate\Support\Facades\Route;
 //******************    Trang khach hang    ******************//
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/demo', function(){
+Route::get('/demo', function () {
     return view('front_end.mail_send');
 });
 
-Route::get('/login', function(){
+Route::get('/login', function () {
     return response()->json(['auth' => false]);
 })->name('login');
 
@@ -38,6 +39,10 @@ Route::get('/shopping-cart', [CartController::class, 'index'])->name('shopping-c
 Route::get('/shopping-cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/shopping-cart/update-cart', [CartController::class, 'updateCart'])->name('updateCart');
 Route::get('/shopping-cart/delete-cart', [CartController::class, 'deleteCart'])->name('deleteCart');
+
+//Shop
+Route::get('/shop-grid/{slug}', [ShopGridController::class, 'index']);
+
 
 //Blog
 Route::get('/blog', [BlogHomeController::class, 'index'])->name('blog');
@@ -63,7 +68,7 @@ Route::get('/thanks', function () {
 //******************    Trang quan ly    ******************//
 
 Route::prefix('ogani-admin')->group(function () {
-    Route::get('/', function(){
+    Route::get('/', function () {
         return view('admin.admin');
     });
     Route::prefix('/categories')->name('categories.')->group(function () {

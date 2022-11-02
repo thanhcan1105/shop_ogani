@@ -62,7 +62,7 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                {{-- <li><a href="./shop-grid.html">Shop</a></li> --}}
                 <li><a href="./blog">Blog</a></li>
                 <li><a href="./contact">Contact</a></li>
             </ul>
@@ -130,7 +130,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="./shop-grid">Shop</a></li>
+                            {{-- <li><a href="./shop-grid">Shop</a></li> --}}
                             <li><a href="/blog">Blog</a></li>
                             <li><a href="/contact">Contact</a></li>
                         </ul>

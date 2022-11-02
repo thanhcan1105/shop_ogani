@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <link rel="stylesheet" href="{{ asset('front_end/css/drop-right-menu.css') }}">
 
-    
+
 </head>
 
 <body>
@@ -63,7 +63,7 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="#">Shop</a></li>
+                {{-- <li><a href="#">Shop</a></li> --}}
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
@@ -131,7 +131,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="/">Home</a></li>
-                            <li><a href="#">Shop</a></li>
+                            {{-- <li><a href="#">Shop</a></li> --}}
                             <li><a href="/blog">Blog</a></li>
                             <li><a href="/contact">Contact</a></li>
                         </ul>
@@ -173,7 +173,7 @@
                                         @foreach ($category->subCategories as $subCat)
                                             @if ($subCat->count() > 0)
                                                 <div class="dropdown-content" style="width: 100%">
-                                                    <button class="dropchild"> -- {{ $subCat->name }}</button>
+                                                    <a href="./shop-grid/{{ $subCat->slug }}" class="btn dropchild"> -- {{ $subCat->name }}</a>
                                                 </div>
                                             @endif
                                         @endforeach

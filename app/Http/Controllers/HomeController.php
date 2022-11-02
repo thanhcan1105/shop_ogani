@@ -41,28 +41,9 @@ class HomeController extends Controller
             }]);
         }])->where('parent_id', 0)->get();
 
-        // dd($categoryId->count());
-
-            $cate = Categories::get();
-        // $prod = Products::get();
-
-        // dd($cate);   
-        // $list = [];
-
-        // foreach ($cate as $key => $value) {
-        //     $prodd = Products::where('category_id', $value->id)->get();
-        // }
-
-        // $prod = Products::where('category_id', 5)->get();
-        // print($prod->id);
-        // return response()->json($prod);
-
-
         $latest = Products::orderBy('created_at', 'DESC')->take(3)->get();
 
         $blogs = Blog::orderBy('created_at', 'DESC')->take(3)->get();
-        // dd($latest);
-
         // return response()->json([$categoryId]);
 
         return view('front_end.home', compact('qty', 'total', 'categoryId', 'latest', 'blogs'));
